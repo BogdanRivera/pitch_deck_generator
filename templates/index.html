@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Pruebas de usabilidad</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='logo_proyecto.ico') }}" type="image/x-icon">
+</head>
+<body>
+    <div class="header-container">
+        <img src="{{ url_for('static', filename='logo_uni.png') }}" alt="Logo universidad" style="padding-left: 2%; padding-top: 0.5%;" class="header-img">
+        <h1>Sistema generador de pitch decks</h1>
+        <img src="{{ url_for('static', filename='logo_proyecto.png') }}" alt="Logo proyecto" style="padding-right: 2%; padding-top: 0.5%;" class="header-img">
+    </div>
+
+    <h2>Ingresa los datos de tu proyecto (Campos requeridos necesarios)</h2>
+    <form id="formulario">
+        <label for="nombre_de_la_empresa">Nombre de la empresa:</label>
+        <input type="text" id="nombre_de_la_empresa" name="nombre_de_la_empresa" required placeholder="Ej. Nvidia"><br><br>
+
+        <label for="descripcion_corta">Descripción corta del proyecto:</label>
+        <textarea id="descripcion_corta" name="descripcion_corta" required
+        placeholder="Ej. Tarjetas gráficas que permiten un entrenamiento más rápido de los modelos de IA"></textarea><br><br>
+
+        <label for="categoria">Categoría del proyecto:</label>
+        <select id="categoria" name="categoria" required>
+        <option value="">Selecciona una categoría</option>
+        <option>Anthologies</option>
+        <option>Product Design</option>
+        <option>Art Books</option>
+        <option>Robots</option>
+        <option>Animation</option>
+        <option>Cookbooks</option>
+        <option>Calendars</option>
+        <option>Literary Spaces</option>
+        <option>Music</option>
+        <option>Periodicals</option>
+        <option>Pottery</option>
+        <option>Indie Rock</option>
+        <option>Illustration</option>
+        <option>Comics</option>
+        <option>Drinks</option>
+        <option>Performances</option>
+        <option>Journalism</option>
+        <option>Publishing</option>
+        <option>Public Art</option>
+        <option>Social Practice</option>
+        <option>Stationery</option>
+        <option>Radio & Podcasts</option>
+        <option>Nonfiction</option>
+        <option>Comic Books</option>
+        <option>Audio</option>
+        <option>Fiction</option>
+        <option>Embroidery</option>
+        <option>Classical Music</option>
+        <option>Theater</option>
+        <option>Typography</option>
+        <option>Video Games</option>
+        <option>Electronic Music</option>
+        <option>Games</option>
+        <option>Glass</option>
+        <option>Graphic Novels</option>
+        <option>Gadgets</option>
+        <option>Dance</option>
+        <option>Design</option>
+        <option>Documentary</option>
+        <option>Flight</option>
+        <option>Residencies</option>
+        <option>Sound</option>
+        <option>Shorts</option>
+        <option>Puzzles</option>
+        <option>Children's Books</option>
+        <option>Comedy</option>
+        <option>Chiptune</option>
+        <option>Zines</option>
+        <option>Young Adult</option>
+        <option>Webcomics</option>
+        <option>Weaving</option>
+        <option>World Music</option>
+        <option>Print</option>
+        <option>Letterpress</option>
+        <option>Taxidermy</option>
+        <option>Photography</option>
+        <option>Movie Theaters</option>
+        <option>Pop</option>
+        <option>Photobooks</option>
+        <option>Mobile Games</option>
+        <option>Metal</option>
+        <option>Installations</option>
+        <option>Food</option>
+        <option>DIY</option>
+        <option>Ceramics</option>
+        <option>3D Printing</option>
+        <option>Architecture</option>
+        <option>Apps</option>
+        <option>Civic Design</option>
+        <option>Childrenswear</option>
+        <option>Footwear</option>
+        <option>Farmer's Markets</option>
+        <option>Fashion</option>
+        <option>Country & Folk</option>
+        <option>Conceptual Art</option>
+        <option>DIY Electronics</option>
+        <option>Experimental</option>
+        <option>Faith</option>
+        <option>Fantasy</option>
+        <option>Hip-Hop</option>
+        <option>Hardware</option>
+        <option>Graphic Design</option>
+        <option>Gaming Hardware</option>
+        <option>Film & Video</option>
+        <option>Fine Art</option>
+        <option>People</option>
+        <option>Narrative Film</option>
+        <option>Musical</option>
+        <option>Interactive Design</option>
+        <option>Horror</option>
+        <option>Immersive</option>
+        <option>Jewelry</option>
+        <option>Knitting</option>
+        <option>Literary Journals</option>
+        <option>Painting</option>
+        <option>Playing Cards</option>
+        <option>Poetry</option>
+        <option>Photo</option>
+        <option>Pet Fashion</option>
+        <option>Nature</option>
+        <option>Software</option>
+        <option>Small Batch</option>
+        <option>Quilts</option>
+        <option>Space Exploration</option>
+        <option>Translations</option>
+        <option>Technology</option>
+        <option>Textiles</option>
+        <option>Thrillers</option>
+        <option>Wearables</option>
+        <option>Web</option>
+        <option>Woodworking</option>
+        </select>
+        <br><br>
+
+        <label for="problema_y_solucion">Problema y solución:</label>
+        <textarea id="problema_y_solucion" name="problema_y_solucion" required placeholder="Ej. Los modelos tardan demasiado tiempo en entrenarse. 
+    La solución es crear tarjetas gráficas con diferente arquitectura para mejorar los tiempos de entrenamiento"></textarea><br><br>
+
+        <label for="producto_o_servicio">Producto o servicio:</label>
+        <input type="text" id="producto_o_servicio" name="producto_o_servicio" required placeholder="Ej. Tarjeta gráfica BOG-X"><br><br>
+
+        <button type="button" id="generar-prompt">Generar Pitch Deck</button>
+        <div id="loading-indicator" style="display: none; text-align: center; margin: 20px 0;">
+            <img src="{{ url_for('static', filename='cargando.gif') }}" alt="Cargando..." width="400">
+            <p style="margin-top: 10px;">Generando Pitch Deck...</p>
+        </div>
+    </form>
+
+    
+
+    <!-- Contenedor para mostrar el prompt generado -->
+    <div id="respuesta-container" style="display: none;">
+        <h3>Pitch Deck generado:</h3>
+        <p id="respuesta-api" class="pitch-deck-content"></p>
+        <p>¿El resultado es satisfactorio?</p>
+        <button id="btn-si" data-respuesta="Sí">Sí</button>
+        <button id="btn-no" data-respuesta="No">No</button>
+        <button id="btn-copy">Copiar</button>
+
+    </div>
+
+    <!-- Botón de envío al backend -->
+     <br><br>
+    <button id="btn-enviar" style="display: none;">Enviar datos</button>
+
+
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
