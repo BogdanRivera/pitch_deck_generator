@@ -16,11 +16,10 @@
     <h2>Ingresa los datos de tu proyecto (Campos requeridos necesarios)</h2>
     <form id="formulario">
         <label for="nombre_de_la_empresa">Nombre de la empresa:</label>
-        <input type="text" id="nombre_de_la_empresa" name="nombre_de_la_empresa" required placeholder="Ej. Nvidia"><br><br>
+        <input type="text" id="nombre_de_la_empresa" name="nombre_de_la_empresa" required ><br><br>
 
         <label for="descripcion_corta">Descripción corta del proyecto:</label>
-        <textarea id="descripcion_corta" name="descripcion_corta" required
-        placeholder="Ej. Tarjetas gráficas que permiten un entrenamiento más rápido de los modelos de IA"></textarea><br><br>
+        <textarea id="descripcion_corta" name="descripcion_corta" required></textarea><br><br>
 
         <label for="categoria">Categoría del proyecto:</label>
         <select id="categoria" name="categoria" required>
@@ -140,11 +139,10 @@
         <br><br>
 
         <label for="problema_y_solucion">Problema y solución:</label>
-        <textarea id="problema_y_solucion" name="problema_y_solucion" required placeholder="Ej. Los modelos tardan demasiado tiempo en entrenarse. 
-    La solución es crear tarjetas gráficas con diferente arquitectura para mejorar los tiempos de entrenamiento"></textarea><br><br>
+        <textarea id="problema_y_solucion" name="problema_y_solucion" required></textarea><br><br>
 
         <label for="producto_o_servicio">Producto o servicio:</label>
-        <input type="text" id="producto_o_servicio" name="producto_o_servicio" required placeholder="Ej. Tarjeta gráfica BOG-X"><br><br>
+        <input type="text" id="producto_o_servicio" name="producto_o_servicio" required><br><br>
 
         <button type="button" id="generar-prompt">Generar Pitch Deck</button>
         <div id="loading-indicator" style="display: none; text-align: center; margin: 20px 0;">
